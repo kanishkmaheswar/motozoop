@@ -1,6 +1,7 @@
 "use client";
 import Nav from "@/app/components/Nav";
 import { useEffect, useState } from "react";
+import { useToast } from "@/app/components/ToastHost";
 
 interface CartItem {
   id: string;
@@ -12,6 +13,8 @@ interface CartItem {
 
 export default function CartPage() {
   const [items, setItems] = useState<CartItem[]>([]);
+  const [confirmId, setConfirmId] = useState<string | null>(null);
+  const toast = useToast();
 
   useEffect(() => {
     const raw = localStorage.getItem("motozoop_cart");
@@ -19,6 +22,32 @@ export default function CartPage() {
   }, []);
 
   const total = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
+
+  function openRemove(id: string) {
+    setConfirmId(id);
+  }
+
+  function closeDialog() {
+    setConfirmId(null);
+  }
+
+  function removeItem(id: string) {
+    setItems((prev) => {
+      const next = prev.filter((p) => p.id !== id);
+      localStorage.setItem("motozoop_cart", JSON.stringify(next));
+      return next;
+    });
+    toast("Removed item from cart");
+    closeDialog();
+  }
+
+  function changeQuantity(id: string, delta: number) {
+    setItems((prev) => {
+      const next = prev.map((p) => (p.id === id ? { ...p, quantity: p.quantity + delta } : p)).filter((p) => p.quantity > 0);
+      localStorage.setItem("motozoop_cart", JSON.stringify(next));
+      return next;
+    });
+  }
 
   return (
     <div className="min-h-screen gradient-bg">
@@ -37,8 +66,16 @@ export default function CartPage() {
                     {i.currency} {(i.price / 100).toFixed(2)} × {i.quantity}
                   </div>
                 </div>
-                <div className="font-semibold">
-                  {i.currency} {((i.price * i.quantity) / 100).toFixed(2)}
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2">
+                    <button className="btn" onClick={() => (i.quantity <= 1 ? openRemove(i.id) : changeQuantity(i.id, -1))}>−</button>
+                    <span className="min-w-[2ch] text-center">{i.quantity}</span>
+                    <button className="btn" onClick={() => changeQuantity(i.id, 1)}>+</button>
+                  </div>
+                  <div className="font-semibold">
+                    {i.currency} {((i.price * i.quantity) / 100).toFixed(2)}
+                  </div>
+                  <button className="btn" onClick={() => openRemove(i.id)}>Remove</button>
                 </div>
               </div>
             ))}
@@ -47,6 +84,19 @@ export default function CartPage() {
               <div className="font-semibold">INR {(total / 100).toFixed(2)}</div>
             </div>
             <button className="self-end btn btn-primary elevated hover-raise">Checkout (demo)</button>
+          </div>
+        )}
+        {/* Confirm Remove Dialog */}
+        {confirmId && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: "color-mix(in oklab, var(--background), transparent 40%)" }}>
+            <div className="card elevated p-5 max-w-sm w-[90%]" style={{ background: "color-mix(in oklab, var(--background), transparent 5%)" }}>
+              <div className="text-lg font-semibold mb-2">Remove item?</div>
+              <p className="opacity-80 mb-4">Are you sure you want to remove this item from your cart?</p>
+              <div className="flex items-center justify-end gap-2">
+                <button className="btn" onClick={closeDialog}>Cancel</button>
+                <button className="btn btn-primary" onClick={() => removeItem(confirmId)}>Remove</button>
+              </div>
+            </div>
           </div>
         )}
       </main>

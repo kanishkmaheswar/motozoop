@@ -18,20 +18,20 @@ export default function Footer() {
         <div>
           <div className="font-semibold mb-3">Special</div>
           <ul className="space-y-2 opacity-90">
-            <li><Link href="/shop" className="hover:underline">Featured Products</Link></li>
-            <li><Link href="/shop" className="hover:underline">Latest Products</Link></li>
-            <li><Link href="/shop" className="hover:underline">Best Selling</Link></li>
-            <li><Link href="/shop" className="hover:underline">Top Rated</Link></li>
+            <li><Link href="/featured" className="hover:underline">Featured Products</Link></li>
+            <li><Link href="/latest" className="hover:underline">Latest Products</Link></li>
+            <li><Link href="/best-selling" className="hover:underline">Best Selling</Link></li>
+            <li><Link href="/top-rated" className="hover:underline">Top Rated</Link></li>
           </ul>
         </div>
 
         <div>
           <div className="font-semibold mb-3">Account & Shipping Info</div>
           <ul className="space-y-2 opacity-90">
-            <li><Link href="/admin" className="hover:underline">Profile Info</Link></li>
-            <li><Link href="/cart" className="hover:underline">Track Order</Link></li>
-            <li><Link href="/about" className="hover:underline">Refund Policy</Link></li>
-            <li><Link href="/about" className="hover:underline">Cancellation Policy</Link></li>
+            <li><Link href="/profile" className="hover:underline">Profile Info</Link></li>
+            <li><Link href="/track-order" className="hover:underline">Track Order</Link></li>
+            <li><Link href="/refund-policy" className="hover:underline">Refund Policy</Link></li>
+            <li><Link href="/cancellation-policy" className="hover:underline">Cancellation Policy</Link></li>
           </ul>
         </div>
 

@@ -7,7 +7,7 @@
     "currency": "₹",
     "category": "Interior",
     "brand": "MotoShield",
-    "imageUrl": "/placeholder-floor-mats.jpg",
+    "imageUrl": "/placeholder-4-1.png",
     "inStock": true,
     "rating": 4.6,
     "tags": ["mats", "interior", "protection"]
@@ -20,7 +20,7 @@
     "currency": "₹",
     "category": "Electronics",
     "brand": "GripGo",
-    "imageUrl": "/placeholder-phone-mount.jpg",
+    "imageUrl": "/placeholder-4-1.png",
     "inStock": true,
     "rating": 4.5,
     "tags": ["phone", "mount", "electronics"]
@@ -33,7 +33,7 @@
     "currency": "₹",
     "category": "Interior",
     "brand": "LuxGrip",
-    "imageUrl": "/placeholder-steering-cover.jpg",
+    "imageUrl": "/placeholder-4-1.png",
     "inStock": true,
     "rating": 4.3,
     "tags": ["interior", "leather", "comfort"]
@@ -46,7 +46,7 @@
     "currency": "₹",
     "category": "Maintenance",
     "brand": "AirPro",
-    "imageUrl": "/placeholder-tire-inflator.jpg",
+    "imageUrl": "/placeholder-4-1.png",
     "inStock": true,
     "rating": 4.7,
     "tags": ["maintenance", "inflator", "safety"]
@@ -59,7 +59,7 @@
     "currency": "₹",
     "category": "Maintenance",
     "brand": "ShineX",
-    "imageUrl": "/placeholder-car-shampoo.jpg",
+    "imageUrl": "/placeholder-4-1.png",
     "inStock": true,
     "rating": 4.1,
     "tags": ["wash", "ceramic", "maintenance"]
@@ -72,7 +72,7 @@
     "currency": "₹",
     "category": "Electronics",
     "brand": "RoadEye",
-    "imageUrl": "/placeholder-dashcam.jpg",
+    "imageUrl": "/placeholder-4-1.png",
     "inStock": true,
     "rating": 4.4,
     "tags": ["camera", "safety", "electronics"]
@@ -85,7 +85,7 @@
     "currency": "₹",
     "category": "Performance",
     "brand": "FlowMax",
-    "imageUrl": "/placeholder-air-filter.jpg",
+    "imageUrl": "/placeholder-4-1.png",
     "inStock": true,
     "rating": 4.0,
     "tags": ["performance", "filter", "engine"]
@@ -98,7 +98,7 @@
     "currency": "₹",
     "category": "Electronics",
     "brand": "BrightBeam",
-    "imageUrl": "/placeholder-led-bulbs.jpg",
+    "imageUrl": "/placeholder-4-1.png",
     "inStock": true,
     "rating": 4.4,
     "tags": ["lighting", "safety", "electronics"]
@@ -111,7 +111,7 @@
     "currency": "INR",
     "category": "Exterior",
     "brand": "AeroPlus",
-    "imageUrl": "/placeholder-spoiler.jpg",
+    "imageUrl": "/placeholder-4-1.png",
     "inStock": false,
     "rating": 4.2,
     "tags": ["aero", "performance", "exterior"]

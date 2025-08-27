@@ -1,5 +1,6 @@
 "use client";
 import { useCallback } from "react";
+import { useToast } from "@/app/components/ToastHost";
 
 type Props = {
   id: string;
@@ -9,6 +10,7 @@ type Props = {
 };
 
 export default function AddToCartButton({ id, name, price, currency }: Props) {
+  const toast = useToast();
   const onAdd = useCallback(() => {
     const key = "motozoop_cart";
     const raw = typeof window !== "undefined" ? window.localStorage.getItem(key) : null;
@@ -20,7 +22,8 @@ export default function AddToCartButton({ id, name, price, currency }: Props) {
       items.push({ id, name, price, currency, quantity: 1 });
     }
     window.localStorage.setItem(key, JSON.stringify(items));
-  }, [id, name, price, currency]);
+    toast(`Added ${name} to cart`);
+  }, [id, name, price, currency, toast]);
 
   return (
     <button onClick={onAdd} className="rounded border px-3 py-1 text-sm hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a]">
