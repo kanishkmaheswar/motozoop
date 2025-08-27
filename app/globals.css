@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0f1115; /* charcoal */
+  --foreground: #e6e6e6; /* soft white */
+  --brand-primary: #c9a227; /* gold */
+  --brand-secondary: #131826; /* deep navy */
+  --brand-accent: #8c6c1e; /* warm bronze */
 }
 
 @theme inline {
@@ -14,8 +17,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0d0f14;
+    --foreground: #f0f0f0;
   }
 }
 
@@ -24,3 +27,24 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* Basic utilities */
+.container { max-width: 72rem; margin-left: auto; margin-right: auto; }
+.btn { border: 1px solid color-mix(in oklab, var(--foreground), transparent 85%); border-radius: .5rem; padding: .5rem 1rem; }
+.card { border: 1px solid color-mix(in oklab, var(--foreground), transparent 85%); border-radius: .75rem; }
+/* App polish */
+.gradient-bg {
+  background: radial-gradient(1200px 600px at 80% -20%, color-mix(in oklab, var(--brand-primary), transparent 92%), transparent),
+              radial-gradient(1000px 500px at -10% 20%, color-mix(in oklab, var(--brand-secondary), transparent 92%), transparent);
+}
+.glass {
+  background: color-mix(in oklab, var(--background), transparent 10%);
+  backdrop-filter: saturate(140%) blur(8px);
+}
+.elevated {
+  box-shadow: 0 6px 20px color-mix(in oklab, var(--foreground), transparent 94%);
+}
+.hover-raise { transition: transform .2s ease, box-shadow .2s ease; }
+.hover-raise:hover { transform: translateY(-2px); box-shadow: 0 10px 30px color-mix(in oklab, var(--foreground), transparent 92%); }
+.btn-primary { background: linear-gradient(135deg, color-mix(in oklab, var(--brand-primary), transparent 0%), color-mix(in oklab, var(--brand-accent), transparent 0%)); color: #1a1a1a; border: none; }
+.btn-ghost { background: transparent; }
+.pill { border: 1px solid color-mix(in oklab, var(--brand-primary), transparent 60%); border-radius: 999px; padding: .25rem .5rem; font-size: .75rem; }
